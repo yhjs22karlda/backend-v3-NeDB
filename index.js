@@ -1,5 +1,5 @@
 import Datastore from "nedb-promises"
-let db = Datastore.create("database.db")
+const db = Datastore.create("database.db")
 
 const people = [
     {
@@ -31,10 +31,13 @@ const people = [
         names: ["Anders", "Orvar"]
     }
 ]
-// db.insert(people,() =>console.log("inseted"))
 
-// const svenssons = await db.find({lastname: "Svensson"})
-// console.log("Svenssons:", svenssons)
+// db.insert(people)
+//     .then(() => console.log("Data inseted!"))
+//     .catch(err => console.log(err))
+
+const svenssons = await db.find({lastname: "Svensson"})
+console.log("Svenssons:", svenssons)
 
 // const aFirstname = await db.find({firstname: /orvar/i})
 // console.log("A firstname:", aFirstname)
